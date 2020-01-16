@@ -5,19 +5,19 @@
 
   tasks:
   
-    - name: Copiar configuración de seguridad de tomcat
+    - name: Modificando contraseña
       copy:
         src: /root/ansible/tomcat-centos/resources/tomcat-users.xml
         dest: "{{directorio_inst}}/conf"
         owner: "{{usuario_servicio}}"
         group: "{{grupo_servicio}}"
 
-    - name: Habilitando e iniciando servicio tomcat
+    - name: Validando
       systemd:
         name: tomcat.service
         state: stopped
     
-    - name: Habilitando e iniciando servicio tomcat
+    - name: Iniciando
       systemd:
         name: tomcat.service
         state: started
